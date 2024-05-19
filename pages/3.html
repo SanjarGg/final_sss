@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/tovar.css" />
+    <title>Товар</title>
+  </head>
+  <body>
+    <div class="product-container">
+      <div class="product-image">
+        <img
+          src="../images/T120.807.11.091.00_R.avif"
+          alt="Tissot PRX Powermatic 80 40mm"
+        />
+      </div>
+      <div class="product-details">
+        <h1>TISSOT PRX POWERMATIC 80 40MM</h1>
+        <ul class="product-specs">
+          <li>Диаметр: 40 мм</li>
+          <li>Сменный браслет с быстрым снятием</li>
+          <li>До 80 часов запаса хода</li>
+        </ul>
+        <button id="buyNowButton">Купить онлайн</button>
+        <h3 class="product-description">
+          Тововые и очень красивые часы созданные из титана со сплавом сильвера
+          и рокета, отлично подчеркнут стиль в любом месте и на любое событие
+        </h3>
+      </div>
+    </div>
+
+    <script>
+      function showNotification(message) {
+        if (!("Notification" in window)) {
+          alert("Этот браузер не поддерживает уведомления.");
+          return;
+        }
+
+        if (Notification.permission === "granted") {
+          new Notification(message);
+        } else if (Notification.permission !== "denied") {
+          Notification.requestPermission().then(function (permission) {
+            if (permission === "granted") {
+              new Notification(message);
+            }
+          });
+        }
+      }
+
+      document
+        .getElementById("addToCartButton")
+        .addEventListener("click", function () {
+          showNotification("Товар добавлен в корзину");
+        });
+
+      document
+        .getElementById("buyNowButton")
+        .addEventListener("click", function () {
+          showNotification("Товар добавлен в корзину");
+        });
+    </script>
+  </body>
+</html>
